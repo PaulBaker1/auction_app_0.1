@@ -34,6 +34,11 @@ public class BidService {
             throw e;
         }
         bid.setUserEmail(user.getEmail()); // Ensure user email is set correctly
-        return bidRepository.save(bid);
+        try {
+            return bidRepository.save(bid);
+        } catch (Exception e) {
+            logger.severe("Error saving bid: " + e.getMessage());
+            throw new RuntimeException("Error saving bid: " + e.getMessage());
+        }
     }
 }
