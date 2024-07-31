@@ -1,75 +1,91 @@
 import React, { useState } from 'react';
+import { Button } from 'react-bootstrap';
 import { createBid } from '../services/api';
-import { Form, Button, ButtonGroup } from 'react-bootstrap';
 
 const BidForm = ({ itemId, onBidPlaced }) => {
     const [amount, setAmount] = useState('');
-    const [userEmail, setUserEmail] = useState('');
-    const [paymentMethod, setPaymentMethod] = useState('Credit Card');
+    const [email, setEmail] = useState('');
+    const [paymentMethod, setPaymentMethod] = useState('');
+    const [error, setError] = useState('');
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        createBid(itemId, { amount, userEmail, paymentMethod })
-            .then(response => {
-                alert('Bid placed successfully!');
-                setAmount('');
-                setUserEmail('');
-                setPaymentMethod('Credit Card');
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if (!paymentMethod) {
+            setError('Please select a payment method.');
+            return;
+        }
+
+        const bid = {
+            amount: parseFloat(amount),
+            email,
+            paymentMethod,
+        };
+
+        createBid(itemId, bid)
+            .then(() => {
                 onBidPlaced();
+                setAmount('');
+                setEmail('');
+                setPaymentMethod('');
+                setError('');
             })
             .catch(error => {
-                alert(`Failed to place bid: ${error.response ? error.response.data.message : error.message}`);
+                console.error('Error placing bid:', error);
+                setError('Error placing bid. Please try again.');
             });
     };
 
     return (
-        <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="formBidAmount">
-                <Form.Label>Amount</Form.Label>
-                <Form.Control
+        <form onSubmit={handleSubmit}>
+            <div className="form-group">
+                <label htmlFor="amount">Amount</label>
+                <input
                     type="number"
+                    id="amount"
                     value={amount}
                     onChange={(e) => setAmount(e.target.value)}
                     placeholder="Enter bid amount"
+                    required
                 />
-            </Form.Group>
-            <Form.Group controlId="formUserEmail">
-                <Form.Label>User Email</Form.Label>
-                <Form.Control
+            </div>
+            <div className="form-group">
+                <label htmlFor="user-email">User Email</label>
+                <input
                     type="email"
-                    value={userEmail}
-                    onChange={(e) => setUserEmail(e.target.value)}
+                    id="user-email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter user email"
+                    required
                 />
-            </Form.Group>
-            <Form.Group controlId="formPaymentMethod">
-                <Form.Label>Payment Method</Form.Label>
-                <ButtonGroup>
-                    <Button
-                        variant={paymentMethod === 'Credit Card' ? 'primary' : 'secondary'}
-                        onClick={() => setPaymentMethod('Credit Card')}
-                    >
-                        Credit Card
-                    </Button>
-                    <Button
-                        variant={paymentMethod === 'PayPal' ? 'primary' : 'secondary'}
-                        onClick={() => setPaymentMethod('PayPal')}
-                    >
-                        PayPal
-                    </Button>
-                    <Button
-                        variant={paymentMethod === 'Bank Transfer' ? 'primary' : 'secondary'}
-                        onClick={() => setPaymentMethod('Bank Transfer')}
-                    >
-                        Bank Transfer
-                    </Button>
-                </ButtonGroup>
-            </Form.Group>
-            <Button variant="primary" type="submit">
-                Place Bid
-            </Button>
-        </Form>
+            </div>
+            <div className="payment-methods">
+                <Button
+                    variant={paymentMethod === 'Credit Card' ? 'primary' : 'secondary'}
+                    onClick={() => setPaymentMethod('Credit Card')}
+                >
+                    Credit Card
+                </Button>
+                <Button
+                    variant={paymentMethod === 'PayPal' ? 'primary' : 'secondary'}
+                    onClick={() => setPaymentMethod('PayPal')}
+                >
+                    PayPal
+                </Button>
+                <Button
+                    variant={paymentMethod === 'Bank Transfer' ? 'primary' : 'secondary'}
+                    onClick={() => setPaymentMethod('Bank Transfer')}
+                >
+                    Bank Transfer
+                </Button>
+            </div>
+            {error && <p className="error-message">{error}</p>}
+            <div className="form-actions">
+                <Button variant="primary" type="submit">Place Bid</Button>
+            </div>
+        </form>
     );
-}
+};
 
 export default BidForm;

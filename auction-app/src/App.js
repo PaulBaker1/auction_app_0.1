@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import AuctionItemList from './components/AuctionItemList';
 import AuctionItemDetail from './components/AuctionItemDetail';
-import AuctionItemEdit from './components/AuctionItemEdit'; // Updated import
-import { Container, Row, Col } from 'react-bootstrap';
+import AuctionItemEdit from './components/AuctionItemEdit';
+import { Container } from 'react-bootstrap';
+import './App.css'; // Ensure you import your CSS
 
 const App = () => {
     const [selectedItemId, setSelectedItemId] = useState(null);
@@ -12,17 +13,17 @@ const App = () => {
         <Router>
             <Container>
                 <h1 className="my-4">Auction App</h1>
-                <Row>
-                    <Col md={4}>
+                <div className="container">
+                    <div className="sidebar">
                         <AuctionItemList onSelectItem={setSelectedItemId} />
-                    </Col>
-                    <Col md={8}>
+                    </div>
+                    <div className="main-content">
                         <Routes>
-                            <Route path="/edit/:itemId" element={<AuctionItemEdit />} /> {/* Updated route */}
+                            <Route path="/edit/:itemId" element={<AuctionItemEdit />} />
                             <Route path="/" element={<AuctionItemDetail itemId={selectedItemId} />} />
                         </Routes>
-                    </Col>
-                </Row>
+                    </div>
+                </div>
             </Container>
         </Router>
     );
