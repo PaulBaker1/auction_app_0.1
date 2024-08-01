@@ -46,23 +46,23 @@ The Auction App enables users to create, bid on, and manage auctions efficiently
 To set up the project locally, follow these steps:
 
 1. **Clone the Repository**
-   \`\`\`sh
+   ````sh
    git clone <repository-url>
    cd auction-app
-   \`\`\`
+   ```
 
 2. **Install Dependencies**
-   \`\`\`sh
+   ```sh
    npm install
-   \`\`\`
+   ```
 
 3. **Configure Environment Variables**
-   Create a \`.env\` file in the root directory and add the necessary configuration settings.
+   Create a `.env` file in the root directory and add the necessary configuration settings.
 
 4. **Start the Development Server**
-   \`\`\`sh
+   ```sh
    npm start
-   \`\`\`
+   ```
 
 ### Usage
 
@@ -79,10 +79,6 @@ The project is currently in version 0.1. It includes basic functionalities for u
 - Add user notifications for auction activities.
 - Improve the user interface for a better user experience.
 - Implement auction analytics and reporting features.
-
-### Contact
-
-For any questions or feedback, please contact [your-email@example.com](mailto:your-email@example.com).
 
 ### Use Case Diagram
 
