@@ -47,7 +47,7 @@ To set up the project locally, follow these steps:
 
 1. **Clone the Repository**
    ````sh
-   git clone <repository-url>
+   git clone [<repository-url>](https://github.com/PaulBaker1/auction_app_0.1)
    cd auction-app
    ```
 
