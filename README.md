@@ -87,35 +87,3 @@ For any questions or feedback, please contact [your-email@example.com](mailto:yo
 ### Use Case Diagram
 
 Here is a simple UML use case diagram for the Auction App:
-
-\`\`\`plaintext
-+------------------+           +-------------+
-|                  |           |             |
-|      User        +-----------+   Auction   |
-|                  |           |             |
-+------------------+           +-------------+
-      ^                             |
-      |                             v
-+------------------+           +-------------+
-|                  |           |             |
-|  Authentication  +-----------+     Bid     |
-|                  |           |             |
-+------------------+           +-------------+
-\`\`\`
-
-### Database Diagram
-
-Here is a simple database diagram for the Auction App:
-
-\`\`\`plaintext
-+----------------+       +-------------------+
-|     Users      |       |      Auctions     |
-+----------------+       +-------------------+
-| - user_id      |       | - auction_id      |
-| - username     |       | - item_name       |
-| - email        |       | - start_bid       |
-| - password     |       | - current_bid     |
-+----------------+       | - auction_status  |
-                         | - user_id (FK)    |
-                         +-------------------+
-\`\`\`
