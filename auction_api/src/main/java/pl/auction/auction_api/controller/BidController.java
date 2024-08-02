@@ -20,15 +20,7 @@ public class BidController {
     private AuctionItemService auctionItemService;
 
     private static final Logger logger = Logger.getLogger(BidController.class.getName());
-
-//    @PostMapping
-//    public ResponseEntity<Bid> createBid(@PathVariable Long itemId, @RequestBody Bid bid) {
-//        bid.setAuctionItem(auctionItemService.getAuctionItemById(itemId)
-//                .orElseThrow(() -> new RuntimeException("Item not found")));
-//        Bid createdBid = bidService.createBid(bid);
-//        return ResponseEntity.status(HttpStatus.CREATED).body(createdBid);
-//    }
-    @PostMapping
+/*    @PostMapping
     public ResponseEntity<Bid> createBid(@PathVariable Long itemId, @RequestBody Bid bid) {
         logger.info("Received bid for item: " + itemId + ", bid: " + bid);
         AuctionItem auctionItem = auctionItemService.getAuctionItemById(itemId)
@@ -36,6 +28,21 @@ public class BidController {
         bid.setAuctionItem(auctionItem);
         Bid createdBid = bidService.createBid(bid);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdBid);
+    }*/
+
+    @PostMapping
+    public ResponseEntity<Bid> createBid(@PathVariable Long itemId, @RequestBody Bid bid) {
+        try {
+            logger.info("Received bid for item: " + itemId + ", bid: " + bid);
+            AuctionItem auctionItem = auctionItemService.getAuctionItemById(itemId)
+                    .orElseThrow(() -> new RuntimeException("Item not found"));
+            bid.setAuctionItem(auctionItem);
+            Bid createdBid = bidService.createBid(bid);
+            return ResponseEntity.status(HttpStatus.CREATED).body(createdBid);
+        } catch (Exception e) {
+            logger.severe("Error creating bid: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
     }
 }
 

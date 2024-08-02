@@ -26,6 +26,7 @@ public class Bid {
     private AuctionItem auctionItem;
     private Long userId;
     private String userEmail;
+    private String paymentMethod;
 
     @Override
     public String toString() {
@@ -33,9 +34,8 @@ public class Bid {
                 "id=" + id +
                 ", email='" + email + '\'' +
                 ", amount=" + amount +
-                // Exclude auctionItem or include its ID only
                 ", auctionItemId=" + (auctionItem != null ? auctionItem.getId() : null) +
+                ", paymentMethod='" + paymentMethod + '\'' +
                 '}';
     }
 }
-
