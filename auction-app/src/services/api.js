@@ -43,6 +43,7 @@ export const createBid = (itemId, bid) => {
         });
 };
 
+
 // Function to update auction item discount
 export const updateAuctionItemDiscount = (itemId, discount) => {
     if (discount < 0 || discount > 100) {
