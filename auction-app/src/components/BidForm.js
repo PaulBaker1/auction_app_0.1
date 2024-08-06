@@ -74,10 +74,10 @@ const BidForm = ({ itemId, onBidPlaced }) => {
                     PayPal
                 </Button>
                 <Button
-                    variant={paymentMethod === 'Bank Transfer' ? 'primary' : 'secondary'}
-                    onClick={() => setPaymentMethod('Bank Transfer')}
+                    variant={paymentMethod === 'Bitcoin' ? 'primary' : 'secondary'}
+                    onClick={() => setPaymentMethod('Bitcoin')}
                 >
-                    Bank Transfer
+                    Bitcoin
                 </Button>
             </div>
             {error && <p className="error-message">{error}</p>}

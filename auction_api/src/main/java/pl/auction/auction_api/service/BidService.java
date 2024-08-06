@@ -24,18 +24,18 @@ public class BidService {
         logger.info("Creating bid: " + bid);
 
         // Log the initial userEmail and paymentMethod
-        logger.info("Initial userEmail: " + bid.getUserEmail());
+        logger.info("Initial userEmail: " + bid.getEmail());
         logger.info("Payment Method: " + bid.getPaymentMethod());
 
-        if (bid.getUserEmail() == null || bid.getUserEmail().isEmpty()) {
+        if (bid.getEmail() == null || bid.getEmail().isEmpty()) {
             logger.severe("User email is missing");
             throw new RuntimeException("User email is missing");
         }
 
         User user;
         try {
-            user = Optional.ofNullable(restTemplate.getForObject("http://localhost:8081/api/users/email/" + bid.getUserEmail(), User.class))
-                    .orElseThrow(() -> new RuntimeException("User not found with email: " + bid.getUserEmail()));
+            user = Optional.ofNullable(restTemplate.getForObject("http://localhost:8081/api/users/email/" + bid.getEmail(), User.class))
+                    .orElseThrow(() -> new RuntimeException("User not found with email: " + bid.getEmail()));
         } catch (Exception e) {
             logger.severe("Error retrieving user: " + e.getMessage());
             throw new RuntimeException("Error retrieving user: " + e.getMessage());
@@ -44,10 +44,10 @@ public class BidService {
         // Log the user details retrieved
         logger.info("Retrieved user: " + user);
 
-        bid.setUserEmail(user.getEmail()); // Ensure user email is set correctly
+        bid.setEmail(user.getEmail()); // Ensure user email is set correctly
 
         // Log the userEmail before saving the bid
-        logger.info("userEmail before saving bid: " + bid.getUserEmail());
+        logger.info("userEmail before saving bid: " + bid.getEmail());
 
         try {
             return bidRepository.save(bid);

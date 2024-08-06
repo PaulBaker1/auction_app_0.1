@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Button, ButtonGroup } from 'react-bootstrap'; // Ensure Button and ButtonGroup are imported
+import { Card, Button, ButtonGroup } from 'react-bootstrap';
 import { getAuctionItemById, updateAuctionItemDiscount } from '../services/api';
 import { useNavigate } from 'react-router-dom';
 import BidForm from './BidForm';
@@ -32,6 +32,10 @@ const AuctionItemDetail = ({ itemId }) => {
         });
     };
 
+    const handlePaymentClick = () => {
+        navigate('/payment');
+    };
+
     if (!item) {
         return <div className="main-content">Select an item to see details</div>;
     }
@@ -56,6 +60,7 @@ const AuctionItemDetail = ({ itemId }) => {
                     <div className="form-actions">
                         <Button variant="primary" onClick={() => navigate(`/edit/${item.id}`)}>Edit Auction Item</Button>
                         <Button variant="primary" type="submit">Place Bid</Button>
+                        <Button variant="primary" onClick={handlePaymentClick}>Bitcoin</Button>
                     </div>
                 </Card.Body>
             </Card>
