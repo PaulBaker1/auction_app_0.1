@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5b78daff-166b-4a6d-b5ff-fea2659fac86" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/auction_app_v0.1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_feed_api/csv_files/load-data.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_feed_api/src/main/java/pl/auction/data_feed_api/model/DataFeedingJob.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_feed_api/src/main/java/pl/auction/data_feed_api/model/DataModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_feed_api/src/main/java/pl/auction/data_feed_api/model/FeedData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_feed_api/src/main/java/pl/auction/data_feed_api/model/FeedDataRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_feed_api/src/main/java/pl/auction/data_feed_api/model/TestScheduledTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_feed_api/src/main/java/pl/auction/data_feed_api/service/CsvReaderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_feed_api/src/main/java/pl/auction/data_feed_api/service/DatabaseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsonSchemas.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/v0.1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2knesZqOannGIy3E9G7FYvUsq1z" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.AuctionApiApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.DataFeedApiApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.TransactionApiApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.UserApiApplication.executor&quot;: &quot;Run&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-21&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.DataFeedApiApplication">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="auction_api" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="auction_api" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuctionApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <envs>
+        <env name="ENV_AUCTION_DB_PASSWORD" value="admin123" />
+        <env name="ENV_AUCTION_DB_URL" value="jdbc:postgresql://localhost:5432/auction" />
+        <env name="ENV_AUCTION_DB_USER" value="postgres" />
+      </envs>
+      <module name="auction_api" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="pl.auction.auction_api.AuctionApiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuctionApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="feeding_job" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="pl.auction.auction_api.AuctionApiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DataFeedApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <envs>
+        <env name="ENV_DATA_FEED_DB_URL" value="jdbc:postgres://localhost:5432/data_feed" />
+        <env name="ENV_DATA_FEED_USER" value="postgres" />
+        <env name="ENV_DATA_FEED_PASSWORD" value="admin123 " />
+      </envs>
+      <module name="data_feed_api" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="pl.auction.data_feed_api.DataFeedApiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TransactionApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <envs>
+        <env name="ENV_TRANSACTION_DB_PASSWORD" value="admin123" />
+        <env name="ENV_TRANSACTION_DB_URL" value="jdbc:postgresql://localhost:5432/transaction" />
+        <env name="ENV_TRANSACTION_DB_USER" value="postgres" />
+      </envs>
+      <module name="transaction_api" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="pl.auction.user_api.TransactionApiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <envs>
+        <env name="ENV_USER_DB_URL" value="jdbc:postgresql://localhost:5432/user" />
+        <env name="ENV_USER_DB_USER" value="postgres" />
+        <env name="ENV_USER_DB_PASSWORD" value="admin123" />
+      </envs>
+      <module name="user_api" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="pl.auction.user_api.UserApiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5b78daff-166b-4a6d-b5ff-fea2659fac86" name="Changes" comment="" />
+      <created>1723923983435</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1723923983435</updated>
+      <workItem from="1723923994729" duration="1978000" />
+      <workItem from="1723966632456" duration="7888000" />
+      <workItem from="1723976373572" duration="777000" />
+      <workItem from="1723977200578" duration="21615000" />
+      <workItem from="1724043744415" duration="9229000" />
+      <workItem from="1724150833629" duration="3640000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

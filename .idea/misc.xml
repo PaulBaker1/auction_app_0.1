@@ -7,6 +7,7 @@
         <option value="$PROJECT_DIR$/user_api/pom.xml" />
         <option value="$PROJECT_DIR$/auction_api/pom.xml" />
         <option value="$PROJECT_DIR$/transaction_api/pom.xml" />
+        <option value="$PROJECT_DIR$/data_feed_api/pom.xml" />
       </list>
     </option>
   </component>
