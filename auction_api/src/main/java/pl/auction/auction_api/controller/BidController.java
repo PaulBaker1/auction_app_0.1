@@ -21,21 +21,26 @@ public class BidController {
 
     private static final Logger logger = Logger.getLogger(BidController.class.getName());
 
-//    @PostMapping
-//    public ResponseEntity<Bid> createBid(@PathVariable Long itemId, @RequestBody Bid bid) {
-//        bid.setAuctionItem(auctionItemService.getAuctionItemById(itemId)
-//                .orElseThrow(() -> new RuntimeException("Item not found")));
-//        Bid createdBid = bidService.createBid(bid);
-//        return ResponseEntity.status(HttpStatus.CREATED).body(createdBid);
-//    }
     @PostMapping
     public ResponseEntity<Bid> createBid(@PathVariable Long itemId, @RequestBody Bid bid) {
-        logger.info("Received bid for item: " + itemId + ", bid: " + bid);
-        AuctionItem auctionItem = auctionItemService.getAuctionItemById(itemId)
-                .orElseThrow(() -> new RuntimeException("Item not found"));
-        bid.setAuctionItem(auctionItem);
-        Bid createdBid = bidService.createBid(bid);
-        return ResponseEntity.status(HttpStatus.CREATED).body(createdBid);
+        try {
+            logger.info("Received bid for item: " + itemId + ", bid: " + bid);
+            if (bid.getEmail() == null || bid.getEmail().isEmpty()) {
+                logger.severe("User email is missing");
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+            }
+            AuctionItem auctionItem = auctionItemService.getAuctionItemById(itemId)
+                    .orElseThrow(() -> new RuntimeException("Item not found"));
+            bid.setAuctionItem(auctionItem);
+            Bid createdBid = bidService.createBid(bid);
+            return ResponseEntity.status(HttpStatus.CREATED).body(createdBid);
+        } catch (RuntimeException e) {
+            logger.severe("Error creating bid: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        } catch (Exception e) {
+            logger.severe("Error creating bid: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
     }
 }
 

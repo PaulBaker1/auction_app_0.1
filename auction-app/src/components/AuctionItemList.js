@@ -1,45 +1,60 @@
 import React, { useEffect, useState } from 'react';
 import { getAuctionItems } from '../services/api';
-import { ListGroup, Badge } from 'react-bootstrap';
 
 const AuctionItemList = ({ onSelectItem }) => {
     const [items, setItems] = useState([]);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-        console.log('Fetching auction items');
-        fetchAuctionItems();
+        getAuctionItems()
+            .then(response => {
+                console.log('Auction items fetched:', response.data);
+                if (response.data && Array.isArray(response.data)) {
+                    setItems(response.data);
+                } else {
+                    console.error('Invalid data format:', response.data);
+                    setError('Invalid data format received from server.');
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching auction items:', error);
+                setError('Failed to fetch auction items. Please try again later.');
+            });
     }, []);
 
-    const fetchAuctionItems = () => {
-        getAuctionItems().then(response => {
-            console.log('Fetched auction items:', response.data);
-            setItems(response.data);
-        }).catch(error => {
-            console.error('Error fetching auction items:', error);
-        });
-    };
+    if (error) {
+        return <div>Error: {error}</div>;
+    }
+
+    console.log('Current items state:', items);
+
+    if (!Array.isArray(items)) {
+        console.error('Items is not an array:', items);
+        return <div>Error: Invalid data format received.</div>;
+    }
 
     return (
-        <div className="col-md-4">
+        <div>
             <h2>Auction Items</h2>
-            <ListGroup>
-                {items.map(item => (
-                    <ListGroup.Item key={item.id} action onClick={() => onSelectItem(item.id)}>
-                        <div className="d-flex justify-content-between align-items-center">
-                            <div>
-                                {item.name} - ${item.startingPrice} - Current Bid: ${item.currentBid}
-                            </div>
-                            <div>
-                                <Badge pill variant="info">
-                                    {item.bidsCount} Bids
-                                </Badge>
-                            </div>
+            {items.length === 0 ? (
+                <p>No items available</p>
+            ) : (
+                items.map((item, index) => {
+                    if (typeof item !== 'object' || item === null) {
+                        console.error(`Invalid item at index ${index}:`, item);
+                        return <div key={index}>Error: Invalid item data</div>;
+                    }
+                    const bids = item.bids || [];
+                    return (
+                        <div key={item.id} className="auction-item" onClick={() => onSelectItem(item.id)}>
+                            {item.name} - ${item.startingPrice} - Current Bid: ${item.currentBid}
+                            <span className="badge">{bids.length} Bids</span>
                         </div>
-                    </ListGroup.Item>
-                ))}
-            </ListGroup>
+                    );
+                })
+            )}
         </div>
     );
-};
+}
 
 export default AuctionItemList;

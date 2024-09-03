@@ -2,10 +2,7 @@ package pl.auction.auction_api.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 
@@ -16,6 +13,8 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class Bid {
     @Id
+    @Getter
+    @Setter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String email;
@@ -26,6 +25,7 @@ public class Bid {
     private AuctionItem auctionItem;
     private Long userId;
     private String userEmail;
+    private String paymentMethod;
 
     @Override
     public String toString() {
@@ -33,9 +33,8 @@ public class Bid {
                 "id=" + id +
                 ", email='" + email + '\'' +
                 ", amount=" + amount +
-                // Exclude auctionItem or include its ID only
                 ", auctionItemId=" + (auctionItem != null ? auctionItem.getId() : null) +
+                ", paymentMethod='" + paymentMethod + '\'' +
                 '}';
     }
 }
-
