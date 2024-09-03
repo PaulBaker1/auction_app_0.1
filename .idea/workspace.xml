@@ -5,24 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b78daff-166b-4a6d-b5ff-fea2659fac86" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/auction_app_v0.1.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_feed_api/csv_files/load-data.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_feed_api/src/main/java/pl/auction/data_feed_api/model/DataFeedingJob.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_feed_api/src/main/java/pl/auction/data_feed_api/model/DataModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_feed_api/src/main/java/pl/auction/data_feed_api/model/FeedData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_feed_api/src/main/java/pl/auction/data_feed_api/model/FeedDataRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_feed_api/src/main/java/pl/auction/data_feed_api/model/TestScheduledTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_feed_api/src/main/java/pl/auction/data_feed_api/service/CsvReaderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_feed_api/src/main/java/pl/auction/data_feed_api/service/DatabaseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_feed_api/src/main/java/pl/auction/data_feed_api/controller/DataController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_feed_api/src/main/java/pl/auction/data_feed_api/model/AuditLog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_feed_api/src/main/java/pl/auction/data_feed_api/model/AuditLogRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_feed_api/src/main/java/pl/auction/data_feed_api/model/InvalidDataException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_feed_api/src/main/java/pl/auction/data_feed_api/service/DataService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_feed_api/src/main/java/pl/auction/data_feed_api/service/ItemService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsonSchemas.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/v0.1.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auction_api/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/auction_api/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_feed_api/csv_files/load-data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_feed_api/csv_files/load-data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_feed_api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data_feed_api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_feed_api/src/main/java/pl/auction/data_feed_api/model/DataFeedingJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/data_feed_api/src/main/java/pl/auction/data_feed_api/model/DataFeedingJob.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_feed_api/src/main/java/pl/auction/data_feed_api/model/FeedData.java" beforeDir="false" afterPath="$PROJECT_DIR$/data_feed_api/src/main/java/pl/auction/data_feed_api/model/FeedData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_feed_api/src/main/java/pl/auction/data_feed_api/model/FeedDataRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/data_feed_api/src/main/java/pl/auction/data_feed_api/model/FeedDataRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_feed_api/src/main/java/pl/auction/data_feed_api/service/CsvReaderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/data_feed_api/src/main/java/pl/auction/data_feed_api/service/CsvReaderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_feed_api/src/main/java/pl/auction/data_feed_api/service/DatabaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/data_feed_api/src/main/java/pl/auction/data_feed_api/service/DatabaseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_feed_api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/data_feed_api/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transaction_api/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/transaction_api/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_api/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user_api/target/classes/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +81,9 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
@@ -183,7 +189,13 @@
       <workItem from="1723976373572" duration="777000" />
       <workItem from="1723977200578" duration="21615000" />
       <workItem from="1724043744415" duration="9229000" />
-      <workItem from="1724150833629" duration="3640000" />
+      <workItem from="1724150833629" duration="19198000" />
+      <workItem from="1724231446560" duration="2238000" />
+      <workItem from="1724748243249" duration="1191000" />
+      <workItem from="1725106155183" duration="3584000" />
+      <workItem from="1725119372706" duration="9094000" />
+      <workItem from="1725373865151" duration="899000" />
+      <workItem from="1725389147122" duration="304000" />
     </task>
     <servers />
   </component>

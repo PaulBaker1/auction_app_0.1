@@ -8,12 +8,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="data_feed_api" />
-        <module name="feeding_job" />
         <module name="user_api" />
         <module name="auction_api" />
         <module name="transaction_api" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="feeding_job" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

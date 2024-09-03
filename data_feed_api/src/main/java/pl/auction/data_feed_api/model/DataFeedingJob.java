@@ -27,8 +27,8 @@ public class DataFeedingJob {
     @Scheduled(fixedDelay = 15000) // runs every 15 seconds
     public void dataFeedingJob() {
         logger.info("Data feeding job started.");
-        File file = new File("C:\\\\Users\\\\Paul\\\\Desktop\\\\auction_app_v0.1\\\\data_feed_api\\\\csv_files\\\\load-data.csv");
-        List<FeedData> newFeedData = csvReaderService.readCsv(file);
+        File file = new File("C:\\Users\\Paul\\Desktop\\auction_app_v0.1\\data_feed_api\\csv_files\\load-data.csv");
+        List<FeedData> newFeedData = csvReaderService.readCsv(file.getPath());
 
         if (newFeedData.isEmpty()) {
             logger.info("No new data to process.");

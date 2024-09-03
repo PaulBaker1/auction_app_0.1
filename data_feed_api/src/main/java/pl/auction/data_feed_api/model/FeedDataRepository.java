@@ -9,4 +9,5 @@ import java.util.Optional;
 public interface FeedDataRepository extends JpaRepository<FeedData, Long> {
     List<FeedData> findByItemAndAmountAndPaymentMethod(String item, BigDecimal amount, String paymentMethod);
 
+    List<FeedData> findByItem(String item);
 }

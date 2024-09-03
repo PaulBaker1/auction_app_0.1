@@ -4,70 +4,100 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import pl.auction.data_feed_api.model.FeedData;
+import pl.auction.data_feed_api.model.InvalidDataException;
 
 //import org.apache.commons.validator.routines.EmailValidator;
 import java.io.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
 public class CsvReaderService {
+
     private static final Logger logger = LoggerFactory.getLogger(CsvReaderService.class);
 
-    public List<FeedData> readCsv(File file) {
-        List<FeedData> newFeedData = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+    public List<FeedData> readCsv(String filePath) {
+        List<FeedData> validDataList = new ArrayList<>();
+
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
+            int lineNumber = 0;
+
             while ((line = br.readLine()) != null) {
+                lineNumber++;
                 String[] values = line.split(",");
-                if (isValidData(values)) {
-                    FeedData feedData = FeedData.builder()
-                            .item(values[0])
-                            .amount(new BigDecimal(values[1]))
-                            .paymentMethod(values[2])
-                            .build();
-                    newFeedData.add(feedData);
-                } else {
-                    logger.warn("Invalid data found and skipped: {}", line);
+
+                if (values.length < 4) {
+                    logger.warn("Line {} skipped: Insufficient data fields - {}", lineNumber, line);
+                    continue;
+                }
+
+                try {
+                    Long id = Long.parseLong(values[0]);
+                    String item = values[1];
+                    BigDecimal amount = new BigDecimal(values[2]);
+                    String paymentMethod = values[3];
+                    // add id in method
+                    if (validateData(item, amount, paymentMethod)) {
+                        FeedData data = FeedData.builder()
+                                .id(id) // if applicable; usually, you wouldn't set the ID manually if it's auto-generated
+                                .item(item)
+                                .amount(amount)
+                                .userId(null) // adjust based on your CSV data structure
+                                .email(null) // adjust based on your CSV data structure
+                                .paymentMethod(paymentMethod)
+                                .build();
+                        // Treats the method as if the userId and email needs to be provided, not to be null
+                        validDataList.add(data);
+                    } else {
+                        logger.warn("Line {} skipped: Data validation failed - {}", lineNumber, line);
+                    }
+
+                } catch (NumberFormatException e) {
+                    logger.warn("Line {} skipped: Invalid number format - {}", lineNumber, line);
                 }
             }
-        } catch (FileNotFoundException e) {
-            logger.error("File not found: {}", file.getAbsolutePath(), e);
         } catch (IOException e) {
-            logger.error("Error reading file: {}", file.getAbsolutePath(), e);
+            logger.error("Error reading CSV file", e);
         }
-        return newFeedData;
+
+        return validDataList;
     }
 
+    private boolean validateData(String item, BigDecimal amount, String paymentMethod) {
+        // Add custom validation logic here
+        return item != null && !item.isEmpty() && amount != null && amount.compareTo(BigDecimal.ZERO) > 0 && paymentMethod != null && !paymentMethod.isEmpty();
+    }
+
+
     private boolean isValidData(String[] values) {
-        if (values.length != 3) {
-            logger.warn("Invalid data length: {}", values.length);
+        if (values.length != 3) { // Ensure there are exactly three columns
             return false;
         }
 
-        if(values[0] == null || values[0].isEmpty()) {
-            logger.warn("Invalid product cane: {}", values[0]);
-            return false;
-        }
-
-        // Validate email
-//        if (!EmailValidator.getInstance().isValid(values[0])) {
-//            logger.warn("Invalid email address: {}", values[0]);
-//            return false;
-//        }
-
-        // Validate amount
+        // Validate amount (column 2)
         try {
-            new BigDecimal(values[1]);
+            BigDecimal amount = new BigDecimal(values[1]);
+            if (amount.compareTo(BigDecimal.ZERO) <= 0) {
+                return false; // Amount must be positive
+            }
         } catch (NumberFormatException e) {
-            logger.warn("Invalid amount: {}", values[1]);
             return false;
         }
-        if (values[2] == null || values[2].trim().isEmpty()) {
-            logger.warn("Invalid payment method: {}", values[2]);
+
+        // Validate paymentMethod or third numeric value (column 3)
+        try {
+            BigDecimal paymentMethod = new BigDecimal(values[2]);
+            if (paymentMethod.compareTo(BigDecimal.ZERO) <= 0) {
+                return false; // PaymentMethod (if numeric) must be positive
+            }
+        } catch (NumberFormatException e) {
+            // Optionally log or handle as needed
             return false;
         }
+
         return true;
     }
 }
